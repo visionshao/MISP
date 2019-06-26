@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body>
+            <div class="top">
+                   <center>
+                    <ul>
+                    <li><a href="/home">首页</a></li>
+                    <li><a href="/add">任务添加</a></li>
+                    <li><a href="/showTasks">任务列表</a></li>
+                    <li><a href="/analysis">统计分析</a></li>
+                    </ul>
+                    </center>
+            </div>
+            <div class="content">
+                <p2>今日任务(类型数字:1为英语，2为学习，3为研究)</p2>
+                <table border="1" width="70%" bgcolor="gray">
+                    <tr>
+                        <th>任务名称</th>
+                        <th>任务类型</th>
+                        <th>任务量</th>
+                        <th>任务状态</th>
+                        <th>修改</th>
+                    </tr>
+                    {%for task in tasks%}
+                    <tr>
+                        <td align="center">{{task.task.name}}</td>
+                        <td align="center">{{task.task.type}}</td>
+                        <td align="center">{{task.content}}</td>
+                        <td align="center">{{task.state}}</td>
+                        <td align="center" ><a href="/change{{task.task.tid}}/">已完成任务{{task.task.tid}}</a> </td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+    </body>
+</html>

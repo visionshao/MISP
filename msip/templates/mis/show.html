@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    </head>
+    <body>
+            <div class="top">
+                   <center>
+                    <ul>
+                    <li><a href="/home">首页</a></li>
+                    <li><a href="/add">任务添加</a></li>
+                    <li><a href="/showTasks">任务列表</a></li>
+                    <li><a href="/analysis">统计分析</a></li>
+                    </ul>
+                    </center>
+            </div>
+            <div class="content">
+                <p2>任务列表(类型数字:1为英语，2为学习，3为研究)</p2>
+                <table border="1" width="70%" bgcolor="gray">
+                    <tr>
+                        <th>任务名称</th>
+                        <th>任务类型</th>
+                        <th>任务量</th>
+                        <th>任务创建者</th>
+                        <th>任务创建时间</th>
+                        <th>任务开始时间</th>
+                        <th>任务结束时间</th>
+                        <th>剩余任务量</th>
+                        <th>剩余天数</th>
+                        <th>任务状态</th>
+                        <th>删除</th>
+                    </tr>
+                    {%for task in items%}
+                    <tr>
+                        <td align="center">{{task.task.name}}</td>
+                        <td align="center">{{task.task.type}}</td>
+                        <td align="center">{{task.task.content}}</td>
+                        <td align="center">{{task.task.creator}}</td>
+                        <td align="center">{{task.task.createtime}}</td>
+                        <td align="center">{{task.task.stime}}</td>
+                        <td align="center">{{task.task.etime}}</td>
+                        <td align="center">{{task.content}}</td>
+                        <td align="center">{{task.left_days}}</td>
+                        <td align="center">{{task.task.state}}</td>
+                        <td align="center" ><a href="/delete{{task.task.tid}}/">删除任务{{task.task.tid}}</a> </td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+    </body>
+</html>

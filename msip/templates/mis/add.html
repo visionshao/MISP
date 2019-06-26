@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+    <div class="top">
+                   <center>
+                    <ul>
+                    <li><a href="/home">首页</a></li>
+                    <li><a href="/add">任务添加</a></li>
+                    <li><a href="/showTasks">任务列表</a></li>
+                    <li><a href="/analysis">统计分析</a></li>
+                    </ul>
+                    </center>
+    </div>
+    <div class="title">
+            <p1>任务添加</p1>
+    </div>
+    <div class="form">
+        <form method="post" action="/adddata/">
+            {% csrf_token %}
+            <label for="taskname">任务名称：</label>
+            <input type="text" name="name" class="input">
+            <br>
+            <br>
+            <label for="tasktype">任务类型：</label>
+            <input type="text" name="type" class="input">
+            <br>
+            <br>
+            <label for="taskcontent">任务量：</label>
+            <input type="text" name="content" class="input">
+            <br>
+            <br>
+            <label for="taskcreator">任务创建人：</label>
+            <input type="text" name="creator" class="input">
+            <br>
+            <br>
+            <label for="taskcreatetime">任务创建时间：</label>
+            <input type="date" name="createtime" class="input">
+            <br>
+            <br>
+            <label for="taskstime">任务开始时间：</label>
+            <input type="date" name="stime" class="input">
+            <br>
+            <br>
+            <label for="tasketime"> 任务结束时间：</label>
+            <input type="date" name="etime" class="input">
+            <br>
+            <br>
+            <label style="" for="taskstate" > 任务状态：</label>
+            <select name="state" style="height:25px;width:150px;">
+                        <option value="未完成">未完成</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="提交" style="height:30px;width:150px;">
+            <a id="back" href="/home">
+                <button type="button" style="height:30px;width:150px;">
+                    返回首页
+                </button>
+            </a>
+        </form>
+    </div>
+</body>
+</html>
